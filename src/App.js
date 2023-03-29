@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+//680678193293-dd8cnpvcne4vvou5sldkh9gccj6j8jvj.apps.googleusercontent.com
+import Messenger from './Components/Messenger';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import AccountProvider from './Components/context/AccountProvider';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const id = `680678193293-dd8cnpvcne4vvou5sldkh9gccj6j8jvj.apps.googleusercontent.com`;
+	return (
+		<div className="App">
+			<GoogleOAuthProvider clientId={id}>
+				<AccountProvider>
+					<Messenger/>
+				</AccountProvider>
+
+			</GoogleOAuthProvider>;
+		</div>
+	);
 }
 
 export default App;
